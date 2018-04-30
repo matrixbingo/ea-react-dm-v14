@@ -1,0 +1,7 @@
+node_modules/*
+dist/*
+src/html/*
+neurons/*
+src/lib/*
+examples/*
+lib/*

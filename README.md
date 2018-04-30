@@ -1,4 +1,4 @@
-# 根据gfs-react-dm项目的学习demo，测试用
+# 根据gfs-react-dm项目修改，新增实际需要定制功能
 
 将react、redux整合一起使用的繁琐步骤进行封装，对外提供@View、@Control、@Model分别对应react component、redux action、redux store调用 						
 
@@ -28,6 +28,7 @@ npm install gfs-react-dm --save
 
 
 ## Repair
-
-`version 1.1.0` 新增Action，双向绑定用 <br/>
+``` `version 1.1.0` setValueByReducers 添加回调
+    `version 1.0.0` 新增Action，双向绑定用
+```
 

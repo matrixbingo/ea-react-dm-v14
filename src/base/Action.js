@@ -139,5 +139,15 @@ export default class Action extends BaseControl {
     static ajaxPost(url, param, valueLink, _this, callBack) {
         return ajax.fetch(this, 'POST', url, param, valueLink, _this, callBack)
     }
+
+    @Loading('loading')
+    static ajaxDelete(url, param, valueLink, _this, callBack) {
+        return ajax.fetch(this, 'DELETE', url, param, valueLink, _this, callBack)
+    }
+
+    @Loading('loading')
+    static ajaxPut(url, param, valueLink, _this, callBack) {
+        return ajax.fetch(this, 'PUT', url, param, valueLink, _this, callBack)
+    }
 }
 

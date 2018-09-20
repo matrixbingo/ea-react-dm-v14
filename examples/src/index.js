@@ -74,7 +74,9 @@ class TestComponent extends Component {
     static defaultProps={}
 
     click(){
-        this.props.setValueByReducers('TestModel.temp', {})
+        this.props.setValueByReducers('TestModel.temp', {}, this, function (_this) {
+            window.console.log(_this)
+        })
         window.console.log(1111)
     }
 

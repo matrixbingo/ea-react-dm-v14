@@ -76,7 +76,7 @@ class TestComponent extends Component {
     click(){
         this.props.setValueByReducers('TestModel.temp', {}, this, function (_this) {
             window.console.log(_this)
-        })
+        }, 50)
         window.console.log(1111)
     }
 

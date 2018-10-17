@@ -54,7 +54,7 @@ let curl = {
         const timer = setTimeout(function () {
             action.onComplete && action.onComplete()
             window.clearTimeout(timer)
-        }, 500)
+        }, action.limit)
         return data
     },
     add: function (data, action) {

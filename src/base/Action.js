@@ -10,7 +10,7 @@ import _ from 'underscore'
  * 例：a.b.c修改model a的b.c值
  */
 class BaseControl {
-    static setValueByReducers(valueLink, val, _this, callback) {
+    static setValueByReducers(valueLink, val, _this, callback, limit) {
         (!valueLink || !val) && window.console.error('Action valueLink or val is undifened', valueLink, val)
         const isEmptyObject = function (e) {
             var t
@@ -20,9 +20,9 @@ class BaseControl {
         }
         valueLink = valueLink.match(/\.(.+?)$/, valueLink)[1]
         if (isEmptyObject(val)) {
-            return this.save(valueLink, Immutable.fromJS(val), _this, callback)
+            return this.save(valueLink, Immutable.fromJS(val), _this, callback, limit)
         }
-        return this.save(valueLink, Immutable.fromJS(val), _this, callback)
+        return this.save(valueLink, Immutable.fromJS(val), _this, callback, limit)
     }
 }
 

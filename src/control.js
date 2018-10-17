@@ -130,14 +130,14 @@ let curl = {
             }
         }
      */
-    save: function (path, data, _this, callback, limit, isImmutable = false, modelName = this.__modelName) {
+    save: function (path, data, _this, callback, limit = 100, isImmutable = false, modelName = this.__modelName) {
         return (dispatch) => {
             dispatch({
                 type: this.getModelName('save', true, modelName),//`${DEFAULT}${DEFAULT_METHOD_FIX}${modelName}${DEFAULT_METHOD_FIX}save`,
                 path: path.indexOf('.') >= 0 ? path.split('.') : Array.prototype.concat.call([], path),
                 data: data,
                 isImmutable: isImmutable,
-                limit: limit || 100,
+                limit: limit,
                 onComplete(){
                     callback && _this && callback(_this)
                 }

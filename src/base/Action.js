@@ -11,7 +11,7 @@ import _ from 'underscore'
  */
 class BaseControl {
     static setValueByReducers(valueLink, val, _this, callback, limit) {
-        (!valueLink || !val) && window.console.error('Action valueLink or val is undifened', valueLink, val)
+        (!valueLink || !val) && window.console.warn('Action valueLink or val is undifened', valueLink, val)
         const isEmptyObject = function (e) {
             var t
             for (t in e)

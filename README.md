@@ -8,7 +8,7 @@
 
 ```javascript
 
-npm install gfs-react-dm --save
+npm install ea-react-dm-v14 --save
 ```
 
 ## 使用
@@ -28,7 +28,10 @@ npm install gfs-react-dm --save
 
 
 ## Repair
-``` `version 1.1.0` setValueByReducers 添加回调
+
+``` 
+    `version 1.1.5` 添加回调，TODO 优化
+    `version 1.1.0` setValueByReducers 添加回调
     `version 1.0.0` 新增Action，双向绑定用
 ```
 

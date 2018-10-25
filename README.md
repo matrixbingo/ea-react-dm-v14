@@ -30,7 +30,8 @@ npm install ea-react-dm-v14 --save
 ## Repair
 
 ``` 
-    `version 1.1.5` 添加回调，TODO 优化
+    `version 1.1.7` 添加返回数据的过滤器，TODO 优化
+    `version 1.1.5` 添加回调
     `version 1.1.0` setValueByReducers 添加回调
     `version 1.0.0` 新增Action，双向绑定用
 ```

@@ -47,7 +47,7 @@ const ajax = {
         var str = arr.join('')
         return '?' + str.substring(1, str.length)
     },
-    fetch: function (connect, type, url, param, valueLink, _this, callBack) {
+    fetch: function (connect, type, url, param, valueLink, _this, callBack, filer) {
         let _data = {
             method: type,
             timeout: 60000
@@ -65,6 +65,9 @@ const ajax = {
         }
         return (dispatch) => {
             fetch(url + (type.toLowerCase() == 'get' ? ajax.initParams(param) : ''), _data).then((data) => {
+                if (filer) {
+                    filer(data.msg)
+                }
                 _this && callBack && callBack(_this, data)
                 dispatch(connect.save(valueLink, Immutable.fromJS(data.msg)))
             }, (error) => {
@@ -106,48 +109,48 @@ function Loading(type, params) {
 
 export default class Action extends BaseControl {
 
-    static fetch(url, type, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, type, url, param, valueLink, _this, callBack)
+    static fetch(url, type, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, type, url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('mosk')
-    static fetchMosk(url, type, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, type, url, param, valueLink, _this, callBack)
+    static fetchMosk(url, type, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, type, url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('loading')
-    static fetchLoading(url, type, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, type, url, param, valueLink, _this, callBack)
+    static fetchLoading(url, type, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, type, url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('mosk')
-    static ajaxGetMosk(url, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, 'GET', url, param, valueLink, _this, callBack)
+    static ajaxGetMosk(url, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, 'GET', url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('loading')
-    static ajaxGet(url, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, 'GET', url, param, valueLink, _this, callBack)
+    static ajaxGet(url, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, 'GET', url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('mosk')
-    static ajaxPostMosk(url, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, 'POST', url, param, valueLink, _this, callBack)
+    static ajaxPostMosk(url, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, 'POST', url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('loading')
-    static ajaxPost(url, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, 'POST', url, param, valueLink, _this, callBack)
+    static ajaxPost(url, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, 'POST', url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('loading')
-    static ajaxDelete(url, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, 'DELETE', url, param, valueLink, _this, callBack)
+    static ajaxDelete(url, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, 'DELETE', url, param, valueLink, _this, callBack, filer)
     }
 
     @Loading('loading')
-    static ajaxPut(url, param, valueLink, _this, callBack) {
-        return ajax.fetch(this, 'PUT', url, param, valueLink, _this, callBack)
+    static ajaxPut(url, param, valueLink, _this, callBack, filer) {
+        return ajax.fetch(this, 'PUT', url, param, valueLink, _this, callBack, filer)
     }
 }
 
